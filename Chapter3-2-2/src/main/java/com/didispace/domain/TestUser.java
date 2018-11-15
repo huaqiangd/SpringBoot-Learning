@@ -12,39 +12,39 @@ import javax.persistence.Id;
  * @blog http://blog.didispace.com
  */
 @Entity
-public class User {
+public class TestUser {
 
     @Id
     @GeneratedValue
-    private Long id;
+    private Integer id;
 
     @Column(nullable = false)
-    private String name;
+    private String userName;
 
     @Column(nullable = false)
     private Integer age;
 
-    public User(){}
+    public TestUser(){}
 
-    public User(String name, Integer age) {
-        this.name = name;
+    public TestUser(String userName, Integer age) {
+        this.userName = userName;
         this.age = age;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public Integer getAge() {

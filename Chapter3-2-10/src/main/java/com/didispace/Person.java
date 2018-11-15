@@ -16,7 +16,7 @@ public class Person {
     @Attribute(name = "cn")
     private String commonName;
     @Attribute(name = "sn")
-    private String suerName;
+    private String superName;
     private String userPassword;
 
 }

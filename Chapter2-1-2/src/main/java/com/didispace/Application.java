@@ -1,31 +1,44 @@
 package com.didispace;
 
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
+import org.springframework.boot.context.properties.ConfigurationPropertiesBinding;
+import org.springframework.boot.context.properties.bind.Bindable;
+import org.springframework.boot.context.properties.bind.Binder;
+import org.springframework.context.ApplicationContext;
 
-@Slf4j
+import java.util.List;
+
+/**
+ *
+ * @author 程序猿DD
+ * @version 1.0.0
+ * @blog http://blog.didispace.com
+ *
+ */
 @SpringBootApplication
 public class Application {
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args);
-    }
+	public static void main(String[] args) {
+		ApplicationContext context = SpringApplication.run(Application.class, args);
 
-    @Bean
-    public DataLoader dataLoader() {
-        return new DataLoader();
-    }
+		Binder binder = Binder.get(context.getEnvironment());
 
-    @Slf4j
-    static class DataLoader implements CommandLineRunner {
+		// 绑定简单配置
+		FooProperties foo = binder.bind("com.didispace", Bindable.of(FooProperties.class)).get();
+		System.out.println(foo.getFoo());  //bar
 
-        @Override
-        public void run(String... strings) throws Exception {
-            log.info("Loading data...");
-        }
-    }
+		// 绑定List配置
+		List<String> post = binder.bind("com.didispace.post", Bindable.listOf(String.class)).get();
+		System.out.println(post);  //[Why Spring Boot, Why Spring Cloud]
+
+		List<PostInfo> posts = binder.bind("com.didispace.posts", Bindable.listOf(PostInfo.class)).get();
+		System.out.println(posts); //[PostInfo(title=Why Spring Boot, content=It is perfect!), PostInfo(title=Why Spring Cloud, content=It is perfect too!)]
+
+		// 读取配置
+		System.out.println(context.getEnvironment().containsProperty("com.didispace.database-platform"));//true
+		System.out.println(context.getEnvironment().containsProperty("com.didispace.databasePlatform")); //false
+
+	}
 
 }

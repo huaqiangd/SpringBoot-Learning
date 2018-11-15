@@ -24,6 +24,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
+	//传统Spring应用模式
 	@Configuration
 	class MessageConverterConfig extends WebMvcConfigurerAdapter {
 		@Override

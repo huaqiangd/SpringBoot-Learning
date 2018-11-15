@@ -29,6 +29,8 @@ public class ApplicationTests {
 		stringRedisTemplate.opsForValue().set("aaa", "111");
 		Assert.assertEquals("111", stringRedisTemplate.opsForValue().get("aaa"));
 
+		System.out.println(stringRedisTemplate.opsForValue().get("aaa"));
+
 		// 保存对象
 		User user = new User("超人", 20);
 		redisTemplate.opsForValue().set(user.getUsername(), user);
@@ -42,6 +44,11 @@ public class ApplicationTests {
 		Assert.assertEquals(20, redisTemplate.opsForValue().get("超人").getAge().longValue());
 		Assert.assertEquals(30, redisTemplate.opsForValue().get("蝙蝠侠").getAge().longValue());
 		Assert.assertEquals(40, redisTemplate.opsForValue().get("蜘蛛侠").getAge().longValue());
+
+		System.out.println(stringRedisTemplate.opsForValue().get("超人"));
+		System.out.println(stringRedisTemplate.opsForValue().get("蝙蝠侠"));
+		System.out.println(stringRedisTemplate.opsForValue().get("蜘蛛侠"));
+
 
 	}
 

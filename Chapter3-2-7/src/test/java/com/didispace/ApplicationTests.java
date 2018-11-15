@@ -1,6 +1,6 @@
 package com.didispace;
 
-import com.didispace.domain.User;
+import com.didispace.domain.testUser;
 import com.didispace.domain.UserMapper;
 import org.junit.Assert;
 import org.junit.Test;
@@ -23,8 +23,11 @@ public class ApplicationTests {
 	@Test
 	@Rollback
 	public void findByName() throws Exception {
+
+		userMapper.deleteAll();
 		userMapper.insert("AAA", 20);
-		User u = userMapper.findByName("AAA");
+		testUser u = userMapper.findByName("AAA");
+		System.out.println(u);
 		Assert.assertEquals(20, u.getAge().intValue());
 	}
 

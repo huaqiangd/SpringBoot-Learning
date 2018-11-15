@@ -1,9 +1,8 @@
 package com.didispace;
 
-import com.didispace.domain.User;
-import com.didispace.domain.UserMapper;
+import com.didispace.domain.TestUser;
+import com.didispace.domain.TestUserMapper;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +22,16 @@ import java.util.Map;
 public class ApplicationTests {
 
 	@Autowired
-	private UserMapper userMapper;
+	private TestUserMapper userMapper;
 
 	@Test
 	@Rollback
 	public void testUserMapper() throws Exception {
+		userMapper.deleteAll();
+
 		// insert一条数据，并select出来验证
 		userMapper.insert("AAA", 20);
-		User u = userMapper.findByName("AAA");
+		TestUser u = userMapper.findByName("AAA");
 		Assert.assertEquals(20, u.getAge().intValue());
 		// update一条数据，并select出来验证
 		u.setAge(30);
@@ -42,20 +43,20 @@ public class ApplicationTests {
 		u = userMapper.findByName("AAA");
 		Assert.assertEquals(null, u);
 
-		u = new User("BBB", 30);
+		u = new TestUser("BBB", 30);
 		userMapper.insertByUser(u);
 		Assert.assertEquals(30, userMapper.findByName("BBB").getAge().intValue());
 
 		Map<String, Object> map = new HashMap<>();
-		map.put("name", "CCC");
+		map.put("userName", "CCC");
 		map.put("age", 40);
 		userMapper.insertByMap(map);
 		Assert.assertEquals(40, userMapper.findByName("CCC").getAge().intValue());
 
-		List<User> userList = userMapper.findAll();
-		for(User user : userList) {
+		List<TestUser> userList = userMapper.findAll();
+		for(TestUser user : userList) {
 			Assert.assertEquals(null, user.getId());
-			Assert.assertNotEquals(null, user.getName());
+			Assert.assertNotEquals(null, user.getUserName());
 		}
 
 	}

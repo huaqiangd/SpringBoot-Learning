@@ -1,6 +1,6 @@
 package com.didispace;
 
-import com.didispace.service.UserService;
+import com.didispace.service.TestUserService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -15,32 +15,32 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ApplicationTests {
 
 	@Autowired
-	private UserService userSerivce;
+	private TestUserService testUserService;
 
 	@Before
 	public void setUp() {
 		// 准备，清空user表
-		userSerivce.deleteAllUsers();
+		testUserService.deleteAllUsers();
 	}
 
 	@Test
 	public void test() throws Exception {
 		// 插入5个用户
-		userSerivce.create("a", 1);
-		userSerivce.create("b", 2);
-		userSerivce.create("c", 3);
-		userSerivce.create("d", 4);
-		userSerivce.create("e", 5);
+		testUserService.create("a", 1);
+		testUserService.create("b", 2);
+		testUserService.create("c", 3);
+		testUserService.create("d", 4);
+		testUserService.create("e", 5);
 
 		// 查数据库，应该有5个用户
-		Assert.assertEquals(5, userSerivce.getAllUsers().intValue());
+		Assert.assertEquals(5, testUserService.getAllUsers().intValue());
 
 		// 删除两个用户
-		userSerivce.deleteByName("a");
-		userSerivce.deleteByName("e");
+		testUserService.deleteByUserName("a");
+		testUserService.deleteByUserName("e");
 
 		// 查数据库，应该有5个用户
-		Assert.assertEquals(3, userSerivce.getAllUsers().intValue());
+		Assert.assertEquals(3, testUserService.getAllUsers().intValue());
 
 	}
 

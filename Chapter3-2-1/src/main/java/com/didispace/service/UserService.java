@@ -1,5 +1,8 @@
 package com.didispace.service;
 
+import java.util.List;
+import java.util.Map;
+
 /**
  * @author 程序猿DD
  * @version 1.0.0
@@ -16,7 +19,7 @@ public interface UserService {
     void create(String name, Integer age);
 
     /**
-     * 根据name删除一个用户高
+     * 根据name删除一个用户
      * @param name
      */
     void deleteByName(String name);
@@ -31,5 +34,6 @@ public interface UserService {
      */
     void deleteAllUsers();
 
+    public List<Map<String,Object>> selectAllUsers();
 
 }

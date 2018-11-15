@@ -6,20 +6,20 @@ package com.didispace.service;
  * @date 16/3/17 下午7:04.
  * @blog http://blog.didispace.com
  */
-public interface UserService {
+public interface TestUserService {
 
     /**
      * 新增一个用户
-     * @param name
+     * @param userName
      * @param age
      */
-    void create(String name, Integer age);
+    void create(String userName, Integer age);
 
     /**
-     * 根据name删除一个用户高
-     * @param name
+     * 根据name删除一个用户
+     * @param userName
      */
-    void deleteByName(String name);
+    void deleteByUserName(String userName);
 
     /**
      * 获取用户总量

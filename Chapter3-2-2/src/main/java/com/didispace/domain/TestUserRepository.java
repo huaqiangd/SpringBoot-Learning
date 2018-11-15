@@ -11,14 +11,14 @@ import org.springframework.data.repository.query.Param;
  * @date 16/3/23 下午2:34.
  * @blog http://blog.didispace.com
  */
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface TestUserRepository extends JpaRepository<TestUser, Integer> {
 
-    User findByName(String name);
+    TestUser findByUserName(String userName);
 
-    User findByNameAndAge(String name, Integer age);
+    TestUser findByUserNameAndAge(String userName, Integer age);
 
-    @Query("from User u where u.name=:name")
-    User findUser(@Param("name") String name);
+    @Query("from TestUser u where u.userName=:userName")
+    TestUser findUser(@Param("userName") String userName);
 
 
 }

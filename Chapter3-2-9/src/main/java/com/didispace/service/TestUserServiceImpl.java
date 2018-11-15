@@ -11,28 +11,28 @@ import org.springframework.stereotype.Service;
  * @blog http://blog.didispace.com
  */
 @Service
-public class UserServiceImpl implements UserService {
+public class TestUserServiceImpl implements TestUserService {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Override
-    public void create(String name, Integer age) {
-        jdbcTemplate.update("insert into user(NAME, AGE) values(?, ?)", name, age);
+    public void create(String userName, Integer age) {
+        jdbcTemplate.update("insert into test_user(user_NAME, AGE) values(?, ?)", userName, age);
     }
 
     @Override
-    public void deleteByName(String name) {
-        jdbcTemplate.update("delete from user where NAME = ?", name);
+    public void deleteByUserName(String userName) {
+        jdbcTemplate.update("delete from test_user where user_NAME = ?", userName);
     }
 
     @Override
     public Integer getAllUsers() {
-        return jdbcTemplate.queryForObject("select count(1) from user", Integer.class);
+        return jdbcTemplate.queryForObject("select count(1) from test_user", Integer.class);
     }
 
     @Override
     public void deleteAllUsers() {
-        jdbcTemplate.update("delete from user");
+        jdbcTemplate.update("delete from test_user");
     }
 }
