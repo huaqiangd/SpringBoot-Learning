@@ -25,7 +25,7 @@ public class Application {
             ThreadPoolTaskScheduler executor = new ThreadPoolTaskScheduler();
             executor.setPoolSize(20);
             executor.setThreadNamePrefix("taskExecutor-");
-
+            //设置线程池关闭的时候等待所有任务都完成再继续销毁其他的Bean
             executor.setWaitForTasksToCompleteOnShutdown(true);
             executor.setAwaitTerminationSeconds(60);
             return executor;
