@@ -13,6 +13,7 @@ public interface UserService {
 
     /**
      * 新增一个用户
+     *
      * @param name
      * @param age
      */
@@ -20,6 +21,7 @@ public interface UserService {
 
     /**
      * 根据name删除一个用户
+     *
      * @param name
      */
     void deleteByName(String name);
@@ -34,6 +36,6 @@ public interface UserService {
      */
     void deleteAllUsers();
 
-    public List<Map<String,Object>> selectAllUsers();
+    public List<Map<String, Object>> selectAllUsers();
 
 }

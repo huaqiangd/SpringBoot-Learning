@@ -33,7 +33,8 @@ public class WebLogAspect {
     private Logger logger = Logger.getLogger("mongodb");
 
     @Pointcut("execution(public * com.didispace.web..*.*(..))")
-    public void webLog(){}
+    public void webLog() {
+    }
 
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {

@@ -19,17 +19,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 /**
- *
  * @author 程序猿DD
  * @version 1.0.0
  * @blog http://blog.didispace.com
- *
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes = MockServletContext.class)
 @WebAppConfiguration
 public class ApplicationTests {
-
 
 
 }

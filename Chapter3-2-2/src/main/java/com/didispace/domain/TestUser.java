@@ -24,7 +24,8 @@ public class TestUser {
     @Column(nullable = false)
     private Integer age;
 
-    public TestUser(){}
+    public TestUser() {
+    }
 
     public TestUser(String userName, Integer age) {
         this.userName = userName;

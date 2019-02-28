@@ -32,7 +32,8 @@ public class WebLogAspect {
     ThreadLocal<Long> startTime = new ThreadLocal<>();
 
     @Pointcut("execution(public * com.didispace.web..*.*(..))")
-    public void webLog(){}
+    public void webLog() {
+    }
 
     @Before("webLog()")
     public void doBefore(JoinPoint joinPoint) throws Throwable {

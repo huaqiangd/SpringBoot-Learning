@@ -24,7 +24,8 @@ public class Message {
     @Column(nullable = false)
     private String content;
 
-    public Message(){}
+    public Message() {
+    }
 
     public Message(String name, String content) {
         this.name = name;

@@ -11,12 +11,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(classes = Application.class)
 public class ApplicationTests {
 
-	@Before
-	public void setUp() throws Exception {
-	}
+    @Before
+    public void setUp() throws Exception {
+    }
 
-	@Test
-	public void getHello() throws Exception {
-	}
+    @Test
+    public void getHello() throws Exception {
+    }
 
 }

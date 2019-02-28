@@ -5,11 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 /**
- *
  * @author 程序猿DD
  * @version 1.0.0
  * @blog http://blog.didispace.com
- *
  */
 @Controller
 public class UserController {

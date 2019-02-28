@@ -48,11 +48,11 @@ public class ApplicationTests {
         log.info(userSerivce.getAllUsers().toString());
 
 
-        List<Map<String,Object>> users = userSerivce.selectAllUsers();
-        for (Map<String,Object> user:users ) {
+        List<Map<String, Object>> users = userSerivce.selectAllUsers();
+        for (Map<String, Object> user : users) {
             log.info("------------");
-            for (Map.Entry<String, Object> entry:user.entrySet()  ) {
-                log.info(entry.getKey()+"/"+entry.getValue());
+            for (Map.Entry<String, Object> entry : user.entrySet()) {
+                log.info(entry.getKey() + "/" + entry.getValue());
             }
         }
 

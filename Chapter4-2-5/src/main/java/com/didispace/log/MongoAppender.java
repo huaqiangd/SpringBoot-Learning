@@ -16,7 +16,7 @@ import org.apache.log4j.spi.LoggingEvent;
  * @date 16/5/23 下午4:53.
  * @blog http://blog.didispace.com
  */
-public class MongoAppender  extends AppenderSkeleton {
+public class MongoAppender extends AppenderSkeleton {
 
     private MongoClient mongoClient;
     private MongoDatabase mongoDatabase;
@@ -29,7 +29,7 @@ public class MongoAppender  extends AppenderSkeleton {
     @Override
     protected void append(LoggingEvent loggingEvent) {
 
-        if(mongoDatabase == null) {
+        if (mongoDatabase == null) {
             MongoClientURI connectionString = new MongoClientURI(connectionUrl);
             mongoClient = new MongoClient(connectionString);
             mongoDatabase = mongoClient.getDatabase(databaseName);
@@ -41,7 +41,7 @@ public class MongoAppender  extends AppenderSkeleton {
 
     @Override
     public void close() {
-        if(mongoClient != null) {
+        if (mongoClient != null) {
             mongoClient.close();
         }
     }

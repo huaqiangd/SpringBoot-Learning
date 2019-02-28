@@ -13,12 +13,12 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 @SpringApplicationConfiguration(classes = Application.class)
 public class ApplicationTests {
 
-	@Autowired
-	private ComputeService computeService;
+    @Autowired
+    private ComputeService computeService;
 
-	@Test
-	public void testAdd() throws Exception {
-		Assert.assertEquals("compute-service:add", new Integer(3), computeService.add(1, 2));
-	}
+    @Test
+    public void testAdd() throws Exception {
+        Assert.assertEquals("compute-service:add", new Integer(3), computeService.add(1, 2));
+    }
 
 }

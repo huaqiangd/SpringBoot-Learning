@@ -11,8 +11,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class ApplicationTests {
 
 
-	@Test
-	public void getHello() throws Exception {
-	}
+    @Test
+    public void getHello() throws Exception {
+    }
 
 }

@@ -13,8 +13,8 @@ import java.util.concurrent.CountDownLatch;
 @ImportResource({"classpath:dubbo.xml"})
 public class Application {
 
-	public static void main(String[] args) throws InterruptedException {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) throws InterruptedException {
+        SpringApplication.run(Application.class, args);
+    }
 
 }

@@ -11,28 +11,26 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import java.util.List;
 
 /**
- *
  * @author 程序猿DD
  * @version 1.0.0
  * @blog http://blog.didispace.com
- *
  */
 @SpringBootApplication
 public class Application {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
 
-	//传统Spring应用模式
-	@Configuration
-	class MessageConverterConfig extends WebMvcConfigurerAdapter {
-		@Override
-		public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-			Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.xml();
-			builder.indentOutput(true);
-			converters.add(new MappingJackson2XmlHttpMessageConverter(builder.build()));
-		}
-	}
+    //传统Spring应用模式
+    @Configuration
+    class MessageConverterConfig extends WebMvcConfigurerAdapter {
+        @Override
+        public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
+            Jackson2ObjectMapperBuilder builder = Jackson2ObjectMapperBuilder.xml();
+            builder.indentOutput(true);
+            converters.add(new MappingJackson2XmlHttpMessageConverter(builder.build()));
+        }
+    }
 
 }

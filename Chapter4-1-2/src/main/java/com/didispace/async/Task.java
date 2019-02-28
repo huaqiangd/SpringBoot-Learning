@@ -16,9 +16,9 @@ import java.util.concurrent.Future;
 @Component
 public class Task {
 
-    public static Random random =new Random();
+    public static Random random = new Random();
 
-//    @Async所修饰的函数不要定义为static类型，这样异步调用不会生效
+    //    @Async所修饰的函数不要定义为static类型，这样异步调用不会生效
     @Async
     public Future<String> doTaskOne() throws Exception {
         System.out.println("开始做任务一");

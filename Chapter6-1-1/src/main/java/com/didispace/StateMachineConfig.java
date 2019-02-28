@@ -26,7 +26,7 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     public void configure(StateMachineStateConfigurer<States, Events> states)
             throws Exception {
         states
-            .withStates()
+                .withStates()
                 .initial(States.UNPAID)
                 .states(EnumSet.allOf(States.class));
     }
@@ -35,11 +35,11 @@ public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<States
     public void configure(StateMachineTransitionConfigurer<States, Events> transitions)
             throws Exception {
         transitions
-            .withExternal()
+                .withExternal()
                 .source(States.UNPAID).target(States.WAITING_FOR_RECEIVE)
                 .event(Events.PAY)
                 .and()
-            .withExternal()
+                .withExternal()
                 .source(States.WAITING_FOR_RECEIVE).target(States.DONE)
                 .event(Events.RECEIVE);
     }

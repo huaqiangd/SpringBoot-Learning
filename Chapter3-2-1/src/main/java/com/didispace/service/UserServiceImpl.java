@@ -40,8 +40,8 @@ public class UserServiceImpl implements UserService {
         jdbcTemplate.update("delete from test_USER");
     }
 
-    public List<Map<String,Object>>  selectAllUsers(){
-        List<Map<String,Object>> users = jdbcTemplate.queryForList("select * from test_user");
+    public List<Map<String, Object>> selectAllUsers() {
+        List<Map<String, Object>> users = jdbcTemplate.queryForList("select * from test_user");
         return users;
     }
 }

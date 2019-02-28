@@ -4,7 +4,6 @@
 #  com.didispace.ApplicationReadyEventListener,\
 #  com.didispace.ApplicationStartedEventListener,\
 #  com.didispace.ApplicationStartingEventListener
-
-org.springframework.context.ApplicationListener=  com.didispace.ApplicationPreparedEventListener,\
+org.springframework.context.ApplicationListener=com.didispace.ApplicationPreparedEventListener,\
   com.didispace.ApplicationReadyEventListener,\
   com.didispace.ApplicationStartedEventListener

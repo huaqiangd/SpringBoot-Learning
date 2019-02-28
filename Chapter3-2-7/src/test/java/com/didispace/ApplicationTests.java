@@ -17,18 +17,18 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public class ApplicationTests {
 
-	@Autowired
-	private UserMapper userMapper;
+    @Autowired
+    private UserMapper userMapper;
 
-	@Test
-	@Rollback
-	public void findByName() throws Exception {
+    @Test
+    @Rollback
+    public void findByName() throws Exception {
 
-		userMapper.deleteAll();
-		userMapper.insert("AAA", 20);
-		testUser u = userMapper.findByName("AAA");
-		System.out.println(u);
-		Assert.assertEquals(20, u.getAge().intValue());
-	}
+        userMapper.deleteAll();
+        userMapper.insert("AAA", 20);
+        testUser u = userMapper.findByName("AAA");
+        System.out.println(u);
+        Assert.assertEquals(20, u.getAge().intValue());
+    }
 
 }

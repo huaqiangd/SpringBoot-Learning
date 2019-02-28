@@ -10,6 +10,7 @@ public interface TestUserService {
 
     /**
      * 新增一个用户
+     *
      * @param userName
      * @param age
      */
@@ -17,6 +18,7 @@ public interface TestUserService {
 
     /**
      * 根据name删除一个用户
+     *
      * @param userName
      */
     void deleteByUserName(String userName);
